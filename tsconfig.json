@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "types": [
+      "vitest/globals"
+    ],
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
