@@ -1,4 +1,5 @@
 import { parseInput, Vector } from './parse-input';
+import { getAllPermutations } from '@/utils';
 
 function getDistance(vectors: Vector[], cities: string[]): number {
   let distance = 0;
@@ -14,29 +15,9 @@ function getDistance(vectors: Vector[], cities: string[]): number {
   return distance;
 }
 
-const getPermutations = (cities: Set<string>): string[][] => {
-  const citiesArray = Array.from(cities);
-  const permutations: string[][] = [];
-
-  const permute = (toPermute: string[], permuted: string[] = []) => {
-    if (toPermute.length === 0) {
-      permutations.push(permuted);
-    } else {
-      for (let i = 0; i < toPermute.length; i++) {
-        let curr = [...toPermute];
-        let next = curr.splice(i, 1);
-        permute([...curr], permuted.concat(next));
-      }
-    }
-  };
-
-  permute(citiesArray);
-  return permutations;
-};
-
 export function day09p2(input: string): number {
   const { cities, vectors } = parseInput(input);
-  const allPaths = getPermutations(cities);
+  const allPaths = getAllPermutations(cities);
 
   return Math.max(...allPaths.map((path) => getDistance(vectors, path)));
 }

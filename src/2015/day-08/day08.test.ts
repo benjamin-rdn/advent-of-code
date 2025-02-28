@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import { getInput } from '../utils/getInput';
+import { getInput } from '@/utils/getInput';
 
 import { day08p1 } from './part1';
 import { day08p2 } from './part2';
